@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Index</title>
+      <link>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</guid>
+      <description>Hello there! Welcome to my knowledge base!
+Here&amp;rsquo;s something interesting:
+Optics in Scala</description>
+    </item>
+    
+    <item>
+      <title>Optics in Scala</title>
+      <link>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</link>
+      <pubDate>Wed, 20 Jan 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</guid>
+      <description>Peering into Scala optics with Monocle Introduction Salutations. Today i&amp;rsquo;m going to do an overview of one of my favourite functional programming concepts - optics. Most articles on this topic focus on Haskell so I&amp;rsquo;m going to try to present the topic using Scala and the Monocle library.
+My assumptions for the reader is that they are familiar with basic functional Scala, the concept of type classes and some of the more popular ones.</description>
+    </item>
+    
+  </channel>
+</rss>
