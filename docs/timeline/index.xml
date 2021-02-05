@@ -1,19 +1,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Timelines on Notes</title>
-        <link>http://example.org/timeline/</link>
+        <link>http://notes.gbojinov.xyz/timeline/</link>
         <description>Recent content in Timelines on Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Wed, 20 Jan 2021 00:00:00 +0200</lastBuildDate>
-        <atom:link href="http://example.org/timeline/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="http://notes.gbojinov.xyz/timeline/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Index</title>
-            <link>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</link>
+            <link>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</link>
             <pubDate>Wed, 20 Jan 2021 00:00:00 +0200</pubDate>
             
-            <guid>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</guid>
+            <guid>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</guid>
             <description>Hello there! Welcome to my knowledge base!
 Here&amp;rsquo;s something interesting:
 Optics in Scala</description>
@@ -26,10 +26,10 @@ Optics in Scala</description>
         
         <item>
             <title>Optics in Scala</title>
-            <link>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</link>
+            <link>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</link>
             <pubDate>Wed, 20 Jan 2021 00:00:00 +0200</pubDate>
             
-            <guid>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</guid>
+            <guid>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</guid>
             <description>Peering into Scala optics with Monocle Introduction Salutations. Today i&amp;rsquo;m going to do an overview of one of my favourite functional programming concepts - optics. Most articles on this topic focus on Haskell so I&amp;rsquo;m going to try to present the topic using Scala and the Monocle library.
 My assumptions for the reader is that they are familiar with basic functional Scala, the concept of type classes and some of the more popular ones.</description>
             <content type="html"><![CDATA[<h2 id="peering-into-scala-optics-with-monocle">Peering into Scala optics with Monocle</h2>

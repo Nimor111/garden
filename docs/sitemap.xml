@@ -3,31 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</loc>
+    <loc>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223526-index/</loc>
     <lastmod>2021-01-20T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>http://notes.gbojinov.xyz/</loc>
     <lastmod>2021-01-20T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</loc>
+    <loc>http://notes.gbojinov.xyz/timeline/home/gbojinov/nextcloud/org-roam/20210120223606-optics-in-scala/</loc>
     <lastmod>2021-01-20T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/timeline/</loc>
+    <loc>http://notes.gbojinov.xyz/timeline/</loc>
     <lastmod>2021-01-20T00:00:00+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://notes.gbojinov.xyz/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://notes.gbojinov.xyz/tags/</loc>
   </url>
   
 </urlset>
