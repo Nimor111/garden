@@ -1,0 +1,17 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Notes"
+theme = "timeline"
+paginate = 10000
+
+defaultTheme = "light"
+
+[menu]
+  [[menu.main]]
+    identifier = "timeline"
+    name       = "Timeline"
+    url        = "timeline/"
+    weight     = 1
+
+[author]
+  name = "timeline"
