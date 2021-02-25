@@ -6,7 +6,47 @@
     <description>Recent content on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic resource management with Bracket in cats-effect - Scala tutorial</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/</guid>
+      <description>Notes Functional Resource Management with Bracket
+Resources https://www.youtube.com/watch?v=vsJz-fdEsd4</description>
+    </item>
+    
+    <item>
+      <title>Functional Resource Management with Bracket</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/</guid>
+      <description>Note A problem when acquiring resources for use in applications (opening files, database connections, http connections) is closing them even when the operation fails. Imperative programs have try,catch,finally for this, but what does Cats Effect have in the functional world? It has Bracket. It&amp;rsquo;s a type class that can have an instance for a custom type, it is also defined for IO by default.
+Some of its usages are as follows.</description>
+    </item>
+    
+    <item>
+      <title>Parallel typeclass pattern</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/</guid>
+      <description>Note The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we want to do certain operations in parallel with an applicative instance, but then convert back to the monad to use a for comprehension.
+An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the Left. Another example is IO and ParIO.</description>
+    </item>
+    
+    <item>
+      <title>The Parallel typeclass in Cats - Scala tutorial</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/</link>
+      <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/</guid>
+      <description>Notes Parallel typeclass pattern
+Resources https://www.youtube.com/watch?v=Tx5LdRCaDcY</description>
+    </item>
+    
     <item>
       <title>Calming yourself by focusing on the sensations of the body</title>
       <link>http://notes.gbojinov.xyz/timeline/20210221123134-calming-yourself-by-focusing-on-the-sensations-of-the-body/</link>

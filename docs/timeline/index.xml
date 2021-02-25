@@ -5,8 +5,102 @@
         <description>Recent content in Timelines on Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0200</lastBuildDate>
         <atom:link href="http://notes.gbojinov.xyz/timeline/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Basic resource management with Bracket in cats-effect - Scala tutorial</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/</link>
+            <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/</guid>
+            <description>Notes Functional Resource Management with Bracket
+Resources https://www.youtube.com/watch?v=vsJz-fdEsd4</description>
+            <content type="html"><![CDATA[<h2 id="notes">Notes</h2>
+<p><a href="/timeline/20210225233738-functional-resource-management-with-bracket/">Functional Resource Management with Bracket</a></p>
+<h2 id="resources">Resources</h2>
+<p><a href="https://www.youtube.com/watch?v=vsJz-fdEsd4">https://www.youtube.com/watch?v=vsJz-fdEsd4</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Functional Resource Management with Bracket</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/</link>
+            <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/</guid>
+            <description>Note A problem when acquiring resources for use in applications (opening files, database connections, http connections) is closing them even when the operation fails. Imperative programs have try,catch,finally for this, but what does Cats Effect have in the functional world? It has Bracket. It&amp;rsquo;s a type class that can have an instance for a custom type, it is also defined for IO by default.
+Some of its usages are as follows.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>A problem when acquiring resources for use in applications (opening files, database connections, http
+connections) is closing them even when the operation fails. Imperative programs have <code>try,catch,finally</code> for
+this, but what does Cats Effect have in the functional world?
+It has <code>Bracket</code>. It&rsquo;s a type class that can have an instance for a custom type, it is also defined for <code>IO</code> by default.</p>
+<p>Some of its usages are as follows.</p>
+<p>The close will run even if any of the other operations fails or succeeds</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">open<span style="color:#f92672">(</span>file<span style="color:#f92672">).</span>bracket <span style="color:#f92672">{</span> readFile <span style="color:#f92672">}</span> <span style="color:#f92672">{</span> close <span style="color:#f92672">}</span>
+</code></pre></div><p>Also guarantee is another function like this
+This is the same idea as <code>try,catch,finally</code>, the <code>otherAction</code> will always run.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">action<span style="color:#f92672">.</span>guarantee<span style="color:#f92672">(</span>otherAction<span style="color:#f92672">)</span>
+</code></pre></div><h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/">Basic Resource Management With Bracket in Cats-Effect - Scala Tutorial</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210225233738-functional-resource-management-with-bracket/">Functional Resource Management with Bracket</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Parallel typeclass pattern</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/</link>
+            <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/</guid>
+            <description>Note The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we want to do certain operations in parallel with an applicative instance, but then convert back to the monad to use a for comprehension.
+An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the Left. Another example is IO and ParIO.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we
+want to do certain operations in parallel with an applicative instance, but then convert back to the monad to
+use a for comprehension.</p>
+<p>An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the
+Left. Another example is IO and ParIO.</p>
+<p>The definition is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Parallel</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">[</span><span style="color:#66d9ef">_</span><span style="color:#f92672">]]</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">type</span> <span style="color:#66d9ef">M</span><span style="color:#f92672">[</span><span style="color:#66d9ef">_</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">def</span> F<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Monad</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">def</span> M<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Applicative</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">]</span>
+
+  <span style="color:#66d9ef">def</span> parallel<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">F</span> <span style="color:#66d9ef">~&gt;</span> <span style="color:#66d9ef">M</span>
+  <span style="color:#66d9ef">def</span> sequential<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">M</span> <span style="color:#66d9ef">~&gt;</span> <span style="color:#66d9ef">F</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><code>parallel</code> and <code>sequential</code> are natural transformations between the Monad and the Applicative, e.g. functions
+without loss of information.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/">The Parallel Typeclass in Cats - Scala Tutorial</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210225232633-parallel-typeclass-pattern/">Parallel typeclass pattern</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>The Parallel typeclass in Cats - Scala tutorial</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/</link>
+            <pubDate>Thu, 25 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/</guid>
+            <description>Notes Parallel typeclass pattern
+Resources https://www.youtube.com/watch?v=Tx5LdRCaDcY</description>
+            <content type="html"><![CDATA[<h2 id="notes">Notes</h2>
+<p><a href="/timeline/20210225232633-parallel-typeclass-pattern/">Parallel typeclass pattern</a></p>
+<h2 id="resources">Resources</h2>
+<p><a href="https://www.youtube.com/watch?v=Tx5LdRCaDcY">https://www.youtube.com/watch?v=Tx5LdRCaDcY</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Calming yourself by focusing on the sensations of the body</title>

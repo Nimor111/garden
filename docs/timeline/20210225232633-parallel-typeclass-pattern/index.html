@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Georgi Bojinov]">
-<meta name="description" content="Notes Take a break from your brain by focusing on the body
-Resources https://oldpodcast.com/" />
+<meta name="description" content="Note The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we want to do certain operations in parallel with an applicative instance, but then convert back to the monad to use a for comprehension.
+An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the Left. Another example is IO and ParIO." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210221123134-calming-yourself-by-focusing-on-the-sensations-of-the-body/" />
+<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/" />
 
 
     <title>
         
-            Calming yourself by focusing on the sensations of the body :: Notes 
+            Parallel typeclass pattern :: Notes 
         
     </title>
 
@@ -43,21 +43,21 @@ Resources https://oldpodcast.com/" />
 
 
 
-<meta itemprop="name" content="Calming yourself by focusing on the sensations of the body">
-<meta itemprop="description" content="Notes Take a break from your brain by focusing on the body
-Resources https://oldpodcast.com/">
-<meta itemprop="datePublished" content="2021-02-21T00:00:00+02:00" />
-<meta itemprop="dateModified" content="2021-02-21T00:00:00+02:00" />
-<meta itemprop="wordCount" content="14">
+<meta itemprop="name" content="Parallel typeclass pattern">
+<meta itemprop="description" content="Note The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we want to do certain operations in parallel with an applicative instance, but then convert back to the monad to use a for comprehension.
+An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the Left. Another example is IO and ParIO.">
+<meta itemprop="datePublished" content="2021-02-25T00:00:00+02:00" />
+<meta itemprop="dateModified" content="2021-02-25T00:00:00+02:00" />
+<meta itemprop="wordCount" content="131">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Calming yourself by focusing on the sensations of the body"/>
-<meta name="twitter:description" content="Notes Take a break from your brain by focusing on the body
-Resources https://oldpodcast.com/"/>
+<meta name="twitter:title" content="Parallel typeclass pattern"/>
+<meta name="twitter:description" content="Note The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we want to do certain operations in parallel with an applicative instance, but then convert back to the monad to use a for comprehension.
+An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the Left. Another example is IO and ParIO."/>
 
 
 
@@ -65,7 +65,7 @@ Resources https://oldpodcast.com/"/>
 
 
 
-    <meta property="article:published_time" content="2021-02-21 00:00:00 &#43;0200 EET" />
+    <meta property="article:published_time" content="2021-02-25 00:00:00 &#43;0200 EET" />
 
 
 
@@ -138,16 +138,36 @@ Resources https://oldpodcast.com/"/>
 
     <article>
       <h1 class="post-title">
-        <a href="http://notes.gbojinov.xyz/timeline/20210221123134-calming-yourself-by-focusing-on-the-sensations-of-the-body/">Calming yourself by focusing on the sensations of the body</a>
+        <a href="http://notes.gbojinov.xyz/timeline/20210225232633-parallel-typeclass-pattern/">Parallel typeclass pattern</a>
       </h1>
 
       
 
       <div class="post-content">
-        <h2 id="notes">Notes</h2>
-<p><a href="/timeline/20210221123440-take-a-break-from-your-brain-by-focusing-on-the-body/">Take a break from your brain by focusing on the body</a></p>
-<h2 id="resources">Resources</h2>
-<p><a href="https://oldpodcast.com/">https://oldpodcast.com/</a></p>
+        <h2 id="note">Note</h2>
+<p>The Parallel typeclass is an abstraction over the conversion between an Applicative and a Monad, e.g. when we
+want to do certain operations in parallel with an applicative instance, but then convert back to the monad to
+use a for comprehension.</p>
+<p>An example of it would be a conversion between Validated and Either, e.g. an Either with a List of errors as the
+Left. Another example is IO and ParIO.</p>
+<p>The definition is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">trait</span> <span style="color:#a6e22e">Parallel</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">[</span><span style="color:#66d9ef">_</span><span style="color:#f92672">]]</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">type</span> <span style="color:#66d9ef">M</span><span style="color:#f92672">[</span><span style="color:#66d9ef">_</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">def</span> F<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Monad</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">def</span> M<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Applicative</span><span style="color:#f92672">[</span><span style="color:#66d9ef">F</span><span style="color:#f92672">]</span>
+
+  <span style="color:#66d9ef">def</span> parallel<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">F</span> <span style="color:#66d9ef">~&gt;</span> <span style="color:#66d9ef">M</span>
+  <span style="color:#66d9ef">def</span> sequential<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">M</span> <span style="color:#66d9ef">~&gt;</span> <span style="color:#66d9ef">F</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p><code>parallel</code> and <code>sequential</code> are natural transformations between the Monad and the Applicative, e.g. functions
+without loss of information.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/">The Parallel Typeclass in Cats - Scala Tutorial</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210225232633-parallel-typeclass-pattern/">Parallel typeclass pattern</a></p>
+</blockquote>
 
       </div>
     </article>
@@ -164,7 +184,7 @@ Resources https://oldpodcast.com/"/>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        14 Words
+        131 Words
       </p>
 
       <p>
@@ -174,7 +194,7 @@ Resources https://oldpodcast.com/"/>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2021-02-21 00:00 &#43;0200
+        2021-02-25 00:00 &#43;0200
       </p>
  
     </div>
@@ -189,17 +209,17 @@ Resources https://oldpodcast.com/"/>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/">
+              <a href="http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/">
                 <span class="button__icon">←</span>
-                <span class="button__text">The Parallel typeclass in Cats - Scala tutorial</span>
+                <span class="button__text">Functional Resource Management with Bracket</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="http://notes.gbojinov.xyz/timeline/20210221124251-have-a-to-don-t-list/">
-                <span class="button__text">Have a to don&#39;t list</span>
+              <a href="http://notes.gbojinov.xyz/timeline/20210225232120-the-parallel-typeclass-in-cats-scala-tutorial/">
+                <span class="button__text">The Parallel typeclass in Cats - Scala tutorial</span>
                 <span class="button__icon">→</span>
               </a>
             </span>
