@@ -6,7 +6,84 @@
     <description>Recent content on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Achieving totality in functions</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/</guid>
+      <description>Note This pertains to Haskell, but the concepts are valid in any functional language.
+How to achieve totality? Common patterns:
+ Using a default value, e.g. something like mempty of Monoid Using Maybe, Either, Validation, These, which are effects to model situations like these Restricting input types (e.g. NonEmpty, or newtypes / refinement types) Make abstractions smaller (example: don&amp;rsquo;t define typeclass instances for types where some of the methods might be partial - Num and Natural typeclass for example, as Num has negative values as well) Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell) Dependent types (types that depend on values) - allows you to pass in requirements for types at the type levels (e.</description>
+    </item>
+    
+    <item>
+      <title>Given and Using Clauses in Scala 3</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/</guid>
+      <description>Notes Givens in Scala 3 as behaviours injected into functions
+Givens in Scala 3 as proofs of existence of types
+Other random facts about givens:
+To import givens:
+object Givens { given personOrdering as Ordering[Person] { ??? } } import Givens.personOrdering import Givens.{given Ordering[Person]} import Givens.{given _} Givens can be &amp;ldquo;derived&amp;rdquo; (as this is not the same as deriving in Haskell for example, where instances are defined automatically). Here it means, when you have a higher kinded type like Ordering[T] for example, you can write an instance for Ordering[Option[T]] using the first instance.</description>
+    </item>
+    
+    <item>
+      <title>Givens in Scala 3 as behaviours injected into functions</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/</guid>
+      <description>Note What is the use case of givens in Scala 3? They are a replacement for implicits, avoiding to explicitly have to pass instances used at call site. Given is well named - it is considered a &amp;ldquo;given&amp;rdquo; to the function. We don&amp;rsquo;t instantiate it as we do with implicits, but rather automatically creates instances to be injected in the function at call site.
+An example of a given instance that defines an ordering behaviour for a custom type Person:</description>
+    </item>
+    
+    <item>
+      <title>Givens in Scala 3 as proofs of existence of types</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/</guid>
+      <description>Note From the point of view of Type level programming, a given proves the existence of a type - e.g. the compiler can prove the existence of types, and then create new given instances using those types. This can be used for computations at compile time. (e.g. for a type level sum for example)
+A given is conceptually constructing an instance of a type with a concrete behaviour where a using claused is used.</description>
+    </item>
+    
+    <item>
+      <title>Total functions and how they are useful to us</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/</guid>
+      <description>Note Functions in programming are different from maths as they are a concrete implementation of something abstract, and thus have problems like how long they take to compute and whether they finish or hang. They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.
+A total function terminates and returns an output value for every value of the input domain.</description>
+    </item>
+    
+    <item>
+      <title>Totality in functional programming</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/</guid>
+      <description>Notes Total functions and how they are useful to us
+Where can we introduce partiality in functions?
+Achieving totality in functions
+Resources https://kowainik.github.io/posts/totality</description>
+    </item>
+    
+    <item>
+      <title>Where can we introduce partiality in functions?</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/</link>
+      <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/</guid>
+      <description>Note A function that is not total, is partial. Yet again pertaining to Haskell, but is valid for other FP languages.
+Where partiality can be introduced:
+ Non-exhaustive pattern matching Missing conditions in guards Any pattern matching, basically Unspecified fields of records / structs / etc. Using bottom, e.g. error and undefined in Haskell Non-terminating loops Seg faults, and other low-level issues  Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer matching on all cases of a type instead when pattern matching.</description>
+    </item>
+    
     <item>
       <title>Basic resource management with Bracket in cats-effect - Scala tutorial</title>
       <link>http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/</link>

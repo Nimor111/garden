@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Georgi Bojinov]">
-<meta name="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
+<meta name="description" content="Note Functions in programming are different from maths as they are a concrete implementation of something abstract, and thus have problems like how long they take to compute and whether they finish or hang. They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.
+A total function terminates and returns an output value for every value of the input domain." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/" />
+<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/" />
 
 
     <title>
         
-            Basic resource management with Bracket in cats-effect - Scala tutorial :: Notes 
+            Total functions and how they are useful to us :: Notes 
         
     </title>
 
@@ -43,21 +43,21 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
 
 
 
-<meta itemprop="name" content="Basic resource management with Bracket in cats-effect - Scala tutorial">
-<meta itemprop="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4">
-<meta itemprop="datePublished" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="dateModified" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="wordCount" content="8">
+<meta itemprop="name" content="Total functions and how they are useful to us">
+<meta itemprop="description" content="Note Functions in programming are different from maths as they are a concrete implementation of something abstract, and thus have problems like how long they take to compute and whether they finish or hang. They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.
+A total function terminates and returns an output value for every value of the input domain.">
+<meta itemprop="datePublished" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="dateModified" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="wordCount" content="205">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Basic resource management with Bracket in cats-effect - Scala tutorial"/>
-<meta name="twitter:description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
+<meta name="twitter:title" content="Total functions and how they are useful to us"/>
+<meta name="twitter:description" content="Note Functions in programming are different from maths as they are a concrete implementation of something abstract, and thus have problems like how long they take to compute and whether they finish or hang. They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.
+A total function terminates and returns an output value for every value of the input domain."/>
 
 
 
@@ -65,7 +65,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
 
 
-    <meta property="article:published_time" content="2021-02-25 00:00:00 &#43;0200 EET" />
+    <meta property="article:published_time" content="2021-02-28 00:00:00 &#43;0200 EET" />
 
 
 
@@ -138,16 +138,35 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
     <article>
       <h1 class="post-title">
-        <a href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/">Basic resource management with Bracket in cats-effect - Scala tutorial</a>
+        <a href="http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a>
       </h1>
 
       
 
       <div class="post-content">
-        <h2 id="notes">Notes</h2>
-<p><a href="/timeline/20210225233738-functional-resource-management-with-bracket/">Functional Resource Management with Bracket</a></p>
-<h2 id="resources">Resources</h2>
-<p><a href="https://www.youtube.com/watch?v=vsJz-fdEsd4">https://www.youtube.com/watch?v=vsJz-fdEsd4</a></p>
+        <h2 id="note">Note</h2>
+<p>Functions in programming are different from maths as they are a concrete implementation of something
+abstract, and thus have problems like how long they take to compute and whether they finish or hang.
+They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.</p>
+<p>A total function terminates and returns an output value for every value of the input domain.
+Totality in programming means avoiding runtime exceptions by preventing them from happening at compile time.
+Real totality is achieved without a bottom value, that in programming is usually something like <code>undefined</code> in
+Haskell, which throws exceptions at runtime and makes stuff partial. An example of a pure language is Dhall, a config language - all functions must be pure, total, and terminating.</p>
+<p>Benefits:</p>
+<ul>
+<li>Not having to worry about missing cases in tests, as your function handles all inputs by being total and
+won&rsquo;t blow up</li>
+<li>Easier refactoring due to composition of total functions being total</li>
+<li>Less production failures with unexpected exceptions</li>
+<li>Easier to reason about when there aren&rsquo;t unforeseen edge cases lurking in the back</li>
+</ul>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+</blockquote>
 
       </div>
     </article>
@@ -164,7 +183,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        8 Words
+        205 Words
       </p>
 
       <p>
@@ -174,7 +193,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2021-02-25 00:00 &#43;0200
+        2021-02-28 00:00 &#43;0200
       </p>
  
     </div>
@@ -189,17 +208,17 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/">
+              <a href="http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Where can we introduce partiality in functions?</span>
+                <span class="button__text">Givens in Scala 3 as proofs of existence of types</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/">
-                <span class="button__text">Functional Resource Management with Bracket</span>
+              <a href="http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/">
+                <span class="button__text">Totality in functional programming</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

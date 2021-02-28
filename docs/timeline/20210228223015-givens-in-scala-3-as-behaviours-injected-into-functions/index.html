@@ -5,17 +5,17 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Georgi Bojinov]">
-<meta name="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
+<meta name="description" content="Note What is the use case of givens in Scala 3? They are a replacement for implicits, avoiding to explicitly have to pass instances used at call site. Given is well named - it is considered a &amp;ldquo;given&amp;rdquo; to the function. We don&amp;rsquo;t instantiate it as we do with implicits, but rather automatically creates instances to be injected in the function at call site.
+An example of a given instance that defines an ordering behaviour for a custom type Person:" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/" />
+<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/" />
 
 
     <title>
         
-            Basic resource management with Bracket in cats-effect - Scala tutorial :: Notes 
+            Givens in Scala 3 as behaviours injected into functions :: Notes 
         
     </title>
 
@@ -43,21 +43,21 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
 
 
 
-<meta itemprop="name" content="Basic resource management with Bracket in cats-effect - Scala tutorial">
-<meta itemprop="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4">
-<meta itemprop="datePublished" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="dateModified" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="wordCount" content="8">
+<meta itemprop="name" content="Givens in Scala 3 as behaviours injected into functions">
+<meta itemprop="description" content="Note What is the use case of givens in Scala 3? They are a replacement for implicits, avoiding to explicitly have to pass instances used at call site. Given is well named - it is considered a &ldquo;given&rdquo; to the function. We don&rsquo;t instantiate it as we do with implicits, but rather automatically creates instances to be injected in the function at call site.
+An example of a given instance that defines an ordering behaviour for a custom type Person:">
+<meta itemprop="datePublished" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="dateModified" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="wordCount" content="166">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Basic resource management with Bracket in cats-effect - Scala tutorial"/>
-<meta name="twitter:description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
+<meta name="twitter:title" content="Givens in Scala 3 as behaviours injected into functions"/>
+<meta name="twitter:description" content="Note What is the use case of givens in Scala 3? They are a replacement for implicits, avoiding to explicitly have to pass instances used at call site. Given is well named - it is considered a &ldquo;given&rdquo; to the function. We don&rsquo;t instantiate it as we do with implicits, but rather automatically creates instances to be injected in the function at call site.
+An example of a given instance that defines an ordering behaviour for a custom type Person:"/>
 
 
 
@@ -65,7 +65,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
 
 
-    <meta property="article:published_time" content="2021-02-25 00:00:00 &#43;0200 EET" />
+    <meta property="article:published_time" content="2021-02-28 00:00:00 &#43;0200 EET" />
 
 
 
@@ -138,16 +138,33 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
     <article>
       <h1 class="post-title">
-        <a href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/">Basic resource management with Bracket in cats-effect - Scala tutorial</a>
+        <a href="http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/">Givens in Scala 3 as behaviours injected into functions</a>
       </h1>
 
       
 
       <div class="post-content">
-        <h2 id="notes">Notes</h2>
-<p><a href="/timeline/20210225233738-functional-resource-management-with-bracket/">Functional Resource Management with Bracket</a></p>
-<h2 id="resources">Resources</h2>
-<p><a href="https://www.youtube.com/watch?v=vsJz-fdEsd4">https://www.youtube.com/watch?v=vsJz-fdEsd4</a></p>
+        <h2 id="note">Note</h2>
+<p>What is the use case of <code>givens</code> in Scala 3?
+They are a replacement for <code>implicits</code>, avoiding to explicitly have to pass instances used at call site.
+<code>Given</code> is well named - it is considered a &ldquo;given&rdquo; to the function. We don&rsquo;t instantiate it as we do with
+implicits, but rather automatically creates instances to be injected in the function at call site.</p>
+<p>An example of a <code>given</code> instance that defines an ordering behaviour for a custom type <code>Person</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">given personOrdering as <span style="color:#a6e22e">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> compare<span style="color:#f92672">(</span>x<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Person</span><span style="color:#f92672">,</span> y<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Person</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span>
+    x<span style="color:#f92672">.</span>surname<span style="color:#f92672">.</span>compareTo<span style="color:#f92672">(</span>y<span style="color:#f92672">.</span>surname<span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And then in the function to use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> listPeople<span style="color:#f92672">(</span>people<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">])(</span>using ordering<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">=</span> <span style="color:#f92672">???</span>
+</code></pre></div><p>This way we don&rsquo;t need to explicitly pass the <code>ordering</code> argument. We are <code>using</code> the ordering behaviour we have
+previously defined for the <code>Person</code> type. This encodes the concept of type classes, e.g. behaviours for types.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222135-given-and-using-clauses-in-scala-3/">Given and Using Clauses in Scala 3</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/">Givens in Scala 3 as behaviours injected into functions</a></p>
+</blockquote>
 
       </div>
     </article>
@@ -164,7 +181,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        8 Words
+        166 Words
       </p>
 
       <p>
@@ -174,7 +191,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2021-02-25 00:00 &#43;0200
+        2021-02-28 00:00 &#43;0200
       </p>
  
     </div>
@@ -189,17 +206,17 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/">
+              <a href="http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Where can we introduce partiality in functions?</span>
+                <span class="button__text">Given and Using Clauses in Scala 3</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/">
-                <span class="button__text">Functional Resource Management with Bracket</span>
+              <a href="http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/">
+                <span class="button__text">Givens in Scala 3 as proofs of existence of types</span>
                 <span class="button__icon">→</span>
               </a>
             </span>

@@ -5,8 +5,233 @@
         <description>Recent content in Timelines on Notes</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 25 Feb 2021 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0200</lastBuildDate>
         <atom:link href="http://notes.gbojinov.xyz/timeline/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Achieving totality in functions</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/</guid>
+            <description>Note This pertains to Haskell, but the concepts are valid in any functional language.
+How to achieve totality? Common patterns:
+ Using a default value, e.g. something like mempty of Monoid Using Maybe, Either, Validation, These, which are effects to model situations like these Restricting input types (e.g. NonEmpty, or newtypes / refinement types) Make abstractions smaller (example: don&amp;rsquo;t define typeclass instances for types where some of the methods might be partial - Num and Natural typeclass for example, as Num has negative values as well) Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell) Dependent types (types that depend on values) - allows you to pass in requirements for types at the type levels (e.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>This pertains to Haskell, but the concepts are valid in any functional language.</p>
+<p>How to achieve totality? Common patterns:</p>
+<ul>
+<li>Using a default value, e.g. something like <code>mempty</code> of <code>Monoid</code></li>
+<li>Using <code>Maybe</code>, <code>Either</code>, <code>Validation</code>, <code>These</code>, which are effects to model situations like these</li>
+<li>Restricting input types (e.g. <code>NonEmpty</code>, or newtypes / refinement types)</li>
+<li>Make abstractions smaller (example: don&rsquo;t define typeclass instances for types where some of the methods might
+be partial - <code>Num</code> and <code>Natural</code> typeclass for example, as <code>Num</code> has negative values as well)</li>
+<li>Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell)</li>
+<li>Dependent types (types that depend on values) - allows you to pass in requirements for types at the type
+levels (e.g. this list will have 5 elements, this integer is not zero, these two matrices have compatible
+dimensions so that they can be multiplied)</li>
+</ul>
+<p>Totality is hard - we don&rsquo;t have enough automated tools to enforce it for now, so we should incorporate it by following these best practices and bake it into our architecture by modeling things in a total way. Totality does not come for free.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Given and Using Clauses in Scala 3</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/</guid>
+            <description>Notes Givens in Scala 3 as behaviours injected into functions
+Givens in Scala 3 as proofs of existence of types
+Other random facts about givens:
+To import givens:
+object Givens { given personOrdering as Ordering[Person] { ??? } } import Givens.personOrdering import Givens.{given Ordering[Person]} import Givens.{given _} Givens can be &amp;ldquo;derived&amp;rdquo; (as this is not the same as deriving in Haskell for example, where instances are defined automatically). Here it means, when you have a higher kinded type like Ordering[T] for example, you can write an instance for Ordering[Option[T]] using the first instance.</description>
+            <content type="html"><![CDATA[<h2 id="notes">Notes</h2>
+<p><a href="/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/">Givens in Scala 3 as behaviours injected into functions</a></p>
+<p><a href="/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/">Givens in Scala 3 as proofs of existence of types</a></p>
+<p>Other random facts about <code>givens</code>:</p>
+<p>To import <code>givens</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Givens</span> <span style="color:#f92672">{</span>
+  given personOrdering as <span style="color:#a6e22e">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">???</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">import</span> Givens.personOrdering
+<span style="color:#66d9ef">import</span> Givens.<span style="color:#f92672">{</span>given <span style="color:#a6e22e">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">]}</span>
+<span style="color:#66d9ef">import</span> Givens.<span style="color:#f92672">{</span>given <span style="color:#66d9ef">_</span><span style="color:#f92672">}</span>
+</code></pre></div><p>Givens can be &ldquo;derived&rdquo; (as this is not the same as deriving in Haskell for example, where instances are defined
+automatically). Here it means, when you have a higher kinded type like <code>Ordering[T]</code> for example, you can write
+an instance for <code>Ordering[Option[T]]</code> using the first instance.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">given optionOrdering<span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">](</span>using tOrdering<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">])</span> as <span style="color:#a6e22e">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Option</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">]]</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">// pattern match on Option values
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">def</span> compare<span style="color:#f92672">(</span>optionA<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Option</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">],</span> optionB<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Option</span><span style="color:#f92672">[</span><span style="color:#66d9ef">T</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">=</span> <span style="color:#f92672">???</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>With implicits you would have to use <code>implicitly</code> to fetch the implicit for the type <code>T</code>, which adds more
+confusion to the mix. It took me an embarrassing amount of time to understand <code>implicitly</code>.</p>
+<p>Can&rsquo;t have &gt; 1 <code>given</code> instance for a type. Compiler would be confused which one to pick. Be good to the compiler!</p>
+<p>Uses of <code>givens</code>:</p>
+<ol>
+<li>Type classes</li>
+<li>Dependency Injection</li>
+<li>Type level programming</li>
+</ol>
+<p>Comparison with <code>implicits</code> - better syntax, better name, less boilerplate. This seems like a great step towards
+making one of the most powerful but esoteric features of Scala more accessible to newcomers.</p>
+<h2 id="resources">Resources</h2>
+<p><a href="https://blog.rockthejvm.com/scala-3-given-using/">https://blog.rockthejvm.com/scala-3-given-using/</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Givens in Scala 3 as behaviours injected into functions</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/</guid>
+            <description>Note What is the use case of givens in Scala 3? They are a replacement for implicits, avoiding to explicitly have to pass instances used at call site. Given is well named - it is considered a &amp;ldquo;given&amp;rdquo; to the function. We don&amp;rsquo;t instantiate it as we do with implicits, but rather automatically creates instances to be injected in the function at call site.
+An example of a given instance that defines an ordering behaviour for a custom type Person:</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>What is the use case of <code>givens</code> in Scala 3?
+They are a replacement for <code>implicits</code>, avoiding to explicitly have to pass instances used at call site.
+<code>Given</code> is well named - it is considered a &ldquo;given&rdquo; to the function. We don&rsquo;t instantiate it as we do with
+implicits, but rather automatically creates instances to be injected in the function at call site.</p>
+<p>An example of a <code>given</code> instance that defines an ordering behaviour for a custom type <code>Person</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">given personOrdering as <span style="color:#a6e22e">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">def</span> compare<span style="color:#f92672">(</span>x<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Person</span><span style="color:#f92672">,</span> y<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Person</span><span style="color:#f92672">)</span><span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Int</span> <span style="color:#f92672">=</span>
+    x<span style="color:#f92672">.</span>surname<span style="color:#f92672">.</span>compareTo<span style="color:#f92672">(</span>y<span style="color:#f92672">.</span>surname<span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And then in the function to use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">def</span> listPeople<span style="color:#f92672">(</span>people<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">List</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">])(</span>using ordering<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Ordering</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Person</span><span style="color:#f92672">])</span> <span style="color:#66d9ef">=</span> <span style="color:#f92672">???</span>
+</code></pre></div><p>This way we don&rsquo;t need to explicitly pass the <code>ordering</code> argument. We are <code>using</code> the ordering behaviour we have
+previously defined for the <code>Person</code> type. This encodes the concept of type classes, e.g. behaviours for types.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222135-given-and-using-clauses-in-scala-3/">Given and Using Clauses in Scala 3</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/">Givens in Scala 3 as behaviours injected into functions</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Givens in Scala 3 as proofs of existence of types</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228223600-givens-in-scala-3-as-proofs-of-existence-of-types/</guid>
+            <description>Note From the point of view of Type level programming, a given proves the existence of a type - e.g. the compiler can prove the existence of types, and then create new given instances using those types. This can be used for computations at compile time. (e.g. for a type level sum for example)
+A given is conceptually constructing an instance of a type with a concrete behaviour where a using claused is used.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>From the point of view of Type level programming, a <code>given</code> proves the existence of a type - e.g. the compiler
+can prove the existence of types, and then create new given instances <code>using</code> those types. This can be used for
+computations at compile time. (e.g. for a type level sum for example)</p>
+<p>A <code>given</code> is conceptually constructing an instance of a type with a concrete behaviour where a <code>using</code> claused is used.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222135-given-and-using-clauses-in-scala-3/">Given and Using Clauses in Scala 3</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228223015-givens-in-scala-3-as-behaviours-injected-into-functions/">Givens in Scala 3 as behaviours injected into functions</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Total functions and how they are useful to us</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/</guid>
+            <description>Note Functions in programming are different from maths as they are a concrete implementation of something abstract, and thus have problems like how long they take to compute and whether they finish or hang. They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.
+A total function terminates and returns an output value for every value of the input domain.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>Functions in programming are different from maths as they are a concrete implementation of something
+abstract, and thus have problems like how long they take to compute and whether they finish or hang.
+They have side effects as well. But FP mitigates some of these differences (e.g. pure functions), which allows us to talk about totality.</p>
+<p>A total function terminates and returns an output value for every value of the input domain.
+Totality in programming means avoiding runtime exceptions by preventing them from happening at compile time.
+Real totality is achieved without a bottom value, that in programming is usually something like <code>undefined</code> in
+Haskell, which throws exceptions at runtime and makes stuff partial. An example of a pure language is Dhall, a config language - all functions must be pure, total, and terminating.</p>
+<p>Benefits:</p>
+<ul>
+<li>Not having to worry about missing cases in tests, as your function handles all inputs by being total and
+won&rsquo;t blow up</li>
+<li>Easier refactoring due to composition of total functions being total</li>
+<li>Less production failures with unexpected exceptions</li>
+<li>Easier to reason about when there aren&rsquo;t unforeseen edge cases lurking in the back</li>
+</ul>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Totality in functional programming</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/</guid>
+            <description>Notes Total functions and how they are useful to us
+Where can we introduce partiality in functions?
+Achieving totality in functions
+Resources https://kowainik.github.io/posts/totality</description>
+            <content type="html"><![CDATA[<h2 id="notes">Notes</h2>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+<p><a href="/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/">Where can we introduce partiality in functions?</a></p>
+<p><a href="/timeline/20210228225209-achieving-totality-in-functions/">Achieving totality in functions</a></p>
+<h2 id="resources">Resources</h2>
+<p><a href="https://kowainik.github.io/posts/totality">https://kowainik.github.io/posts/totality</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Where can we introduce partiality in functions?</title>
+            <link>http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/</link>
+            <pubDate>Sun, 28 Feb 2021 00:00:00 +0200</pubDate>
+            
+            <guid>http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/</guid>
+            <description>Note A function that is not total, is partial. Yet again pertaining to Haskell, but is valid for other FP languages.
+Where partiality can be introduced:
+ Non-exhaustive pattern matching Missing conditions in guards Any pattern matching, basically Unspecified fields of records / structs / etc. Using bottom, e.g. error and undefined in Haskell Non-terminating loops Seg faults, and other low-level issues  Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer matching on all cases of a type instead when pattern matching.</description>
+            <content type="html"><![CDATA[<h2 id="note">Note</h2>
+<p>A function that is not total, is partial.
+Yet again pertaining to Haskell, but is valid for other FP languages.</p>
+<p>Where partiality can be introduced:</p>
+<ul>
+<li>Non-exhaustive pattern matching</li>
+<li>Missing conditions in guards</li>
+<li>Any pattern matching, basically</li>
+<li>Unspecified fields of records / structs / etc.</li>
+<li>Using bottom, e.g. <code>error</code> and <code>undefined</code> in Haskell</li>
+<li>Non-terminating loops</li>
+<li>Seg faults, and other low-level issues</li>
+</ul>
+<p>Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer
+matching on all cases of a type instead when pattern matching.
+Same goes when using <code>error</code> for seemingly unreachable code, or &ldquo;trusting&rdquo; that functions from libraries are total.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+</blockquote>
+]]></content>
+        </item>
         
         <item>
             <title>Basic resource management with Bracket in cats-effect - Scala tutorial</title>

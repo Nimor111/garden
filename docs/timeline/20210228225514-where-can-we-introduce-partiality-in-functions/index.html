@@ -5,17 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Georgi Bojinov]">
-<meta name="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
+<meta name="description" content="Note A function that is not total, is partial. Yet again pertaining to Haskell, but is valid for other FP languages.
+Where partiality can be introduced:
+ Non-exhaustive pattern matching Missing conditions in guards Any pattern matching, basically Unspecified fields of records / structs / etc. Using bottom, e.g. error and undefined in Haskell Non-terminating loops Seg faults, and other low-level issues  Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer matching on all cases of a type instead when pattern matching." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/" />
+<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/" />
 
 
     <title>
         
-            Basic resource management with Bracket in cats-effect - Scala tutorial :: Notes 
+            Where can we introduce partiality in functions? :: Notes 
         
     </title>
 
@@ -43,21 +44,23 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4" />
 
 
 
-<meta itemprop="name" content="Basic resource management with Bracket in cats-effect - Scala tutorial">
-<meta itemprop="description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4">
-<meta itemprop="datePublished" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="dateModified" content="2021-02-25T00:00:00+02:00" />
-<meta itemprop="wordCount" content="8">
+<meta itemprop="name" content="Where can we introduce partiality in functions?">
+<meta itemprop="description" content="Note A function that is not total, is partial. Yet again pertaining to Haskell, but is valid for other FP languages.
+Where partiality can be introduced:
+ Non-exhaustive pattern matching Missing conditions in guards Any pattern matching, basically Unspecified fields of records / structs / etc. Using bottom, e.g. error and undefined in Haskell Non-terminating loops Seg faults, and other low-level issues  Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer matching on all cases of a type instead when pattern matching.">
+<meta itemprop="datePublished" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="dateModified" content="2021-02-28T00:00:00+02:00" />
+<meta itemprop="wordCount" content="124">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Basic resource management with Bracket in cats-effect - Scala tutorial"/>
-<meta name="twitter:description" content="Notes Functional Resource Management with Bracket
-Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
+<meta name="twitter:title" content="Where can we introduce partiality in functions?"/>
+<meta name="twitter:description" content="Note A function that is not total, is partial. Yet again pertaining to Haskell, but is valid for other FP languages.
+Where partiality can be introduced:
+ Non-exhaustive pattern matching Missing conditions in guards Any pattern matching, basically Unspecified fields of records / structs / etc. Using bottom, e.g. error and undefined in Haskell Non-terminating loops Seg faults, and other low-level issues  Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer matching on all cases of a type instead when pattern matching."/>
 
 
 
@@ -65,7 +68,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
 
 
-    <meta property="article:published_time" content="2021-02-25 00:00:00 &#43;0200 EET" />
+    <meta property="article:published_time" content="2021-02-28 00:00:00 &#43;0200 EET" />
 
 
 
@@ -138,16 +141,35 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
 
     <article>
       <h1 class="post-title">
-        <a href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/">Basic resource management with Bracket in cats-effect - Scala tutorial</a>
+        <a href="http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/">Where can we introduce partiality in functions?</a>
       </h1>
 
       
 
       <div class="post-content">
-        <h2 id="notes">Notes</h2>
-<p><a href="/timeline/20210225233738-functional-resource-management-with-bracket/">Functional Resource Management with Bracket</a></p>
-<h2 id="resources">Resources</h2>
-<p><a href="https://www.youtube.com/watch?v=vsJz-fdEsd4">https://www.youtube.com/watch?v=vsJz-fdEsd4</a></p>
+        <h2 id="note">Note</h2>
+<p>A function that is not total, is partial.
+Yet again pertaining to Haskell, but is valid for other FP languages.</p>
+<p>Where partiality can be introduced:</p>
+<ul>
+<li>Non-exhaustive pattern matching</li>
+<li>Missing conditions in guards</li>
+<li>Any pattern matching, basically</li>
+<li>Unspecified fields of records / structs / etc.</li>
+<li>Using bottom, e.g. <code>error</code> and <code>undefined</code> in Haskell</li>
+<li>Non-terminating loops</li>
+<li>Seg faults, and other low-level issues</li>
+</ul>
+<p>Be careful when using wildcards, as adding new cases to types will lead to unexpected behaviour - prefer
+matching on all cases of a type instead when pattern matching.
+Same goes when using <code>error</code> for seemingly unreachable code, or &ldquo;trusting&rdquo; that functions from libraries are total.</p>
+<h2 id="links-to-this-note">Links to this note</h2>
+<ul>
+<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+</ul>
+<blockquote>
+<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+</blockquote>
 
       </div>
     </article>
@@ -164,7 +186,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        8 Words
+        124 Words
       </p>
 
       <p>
@@ -174,7 +196,7 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2021-02-25 00:00 &#43;0200
+        2021-02-28 00:00 &#43;0200
       </p>
  
     </div>
@@ -189,17 +211,17 @@ Resources https://www.youtube.com/watch?v=vsJz-fdEsd4"/>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://notes.gbojinov.xyz/timeline/20210228225514-where-can-we-introduce-partiality-in-functions/">
+              <a href="http://notes.gbojinov.xyz/timeline/20210228222248-totality-in-functional-programming/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Where can we introduce partiality in functions?</span>
+                <span class="button__text">Totality in functional programming</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="http://notes.gbojinov.xyz/timeline/20210225233738-functional-resource-management-with-bracket/">
-                <span class="button__text">Functional Resource Management with Bracket</span>
+              <a href="http://notes.gbojinov.xyz/timeline/20210225233600-basic-resource-management-with-bracket-in-cats-effect-scala-tutorial/">
+                <span class="button__text">Basic resource management with Bracket in cats-effect - Scala tutorial</span>
                 <span class="button__icon">→</span>
               </a>
             </span>
