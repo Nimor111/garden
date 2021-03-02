@@ -6,7 +6,64 @@
     <description>Recent content on Notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Feb 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Mar 2021 00:00:00 +0200</lastBuildDate><atom:link href="http://notes.gbojinov.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Information vs Knowledge</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210302233109-information-vs-knowledge/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210302233109-information-vs-knowledge/</guid>
+      <description>Note Information is scattered pieces on potentially different topics, spread apart and separated. Knowledge is a web, connecting the ideas together and making sense of them together.
+Links to this note  Stop Taking Regular Notes; Use a Zettelkasten Instead   Simplistic view of Zettelkasten workflow
+ </description>
+    </item>
+    
+    <item>
+      <title>Permanent notes in a Zettelkasten</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210302231738-permanent-notes-in-a-zettelkasten/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210302231738-permanent-notes-in-a-zettelkasten/</guid>
+      <description>Note A permanent note, or a zettel, is the main building block of a zettelkasten. It&amp;rsquo;s a single, atomic, self-sufficient idea that connects to other, already existing ideas in the slip box. A permanent note can also be added to at any time as new information surfaces, so it &amp;ldquo;grows&amp;rdquo; in a way. It&amp;rsquo;s the main product of the note taking process, and serves as a basis for writing afterwards. Permanent notes most commonly appear as a joining of literature notes.</description>
+    </item>
+    
+    <item>
+      <title>Simplistic view of Zettelkasten workflow</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210302232348-simplistic-view-of-zettelkasten-workflow/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210302232348-simplistic-view-of-zettelkasten-workflow/</guid>
+      <description>Note Regular note taking doesn&amp;rsquo;t prioritize connections between pieces of knowledge. The Zettelkasten is an attempt to capitalize on connecting notes rather than connecting them so that more meaningful output can come out of note taking. According to the Zettelkasten philosophy, a note is only useful in its context, e.g. other notes it relates to.
+Simple workflow:
+ When reading, make literature notes - notes on an article, each key idea into a sentence that later is to become a permanent note.</description>
+    </item>
+    
+    <item>
+      <title>Stop Taking Regular Notes; Use a Zettelkasten Instead</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210302231143-stop-taking-regular-notes-use-a-zettelkasten-instead/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210302231143-stop-taking-regular-notes-use-a-zettelkasten-instead/</guid>
+      <description>Notes Simplistic view of Zettelkasten workflow
+Information vs Knowledge
+Permanent notes in a Zettelkasten
+Topics in a Zettelkasten
+Resources https://eugeneyan.com/writing/note-taking-zettelkasten/
+https://blog.viktomas.com/posts/slip-box/</description>
+    </item>
+    
+    <item>
+      <title>Topics in a Zettelkasten</title>
+      <link>http://notes.gbojinov.xyz/timeline/20210302232241-topics-in-a-zettelkasten/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0200</pubDate>
+      
+      <guid>http://notes.gbojinov.xyz/timeline/20210302232241-topics-in-a-zettelkasten/</guid>
+      <description>Note Topics make it easy to filter by a specific related group of ideas
+An important thing about topics is that they should be related to the context in which you want to stumble upon this note in the future.
+Examples of topics:
+ A note with a topic of clusterization rather than the more general machine learning will come in handy when writing about or doing research on clusterization. When writing a note about haskell, tag it with - pure functional programming, strong type system, using types to prove stuff at compile time, instead of tagging it with just haskell.</description>
+    </item>
+    
     <item>
       <title>Achieving totality in functions</title>
       <link>http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/</link>

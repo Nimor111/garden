@@ -5,18 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="[Georgi Bojinov]">
-<meta name="description" content="Note This pertains to Haskell, but the concepts are valid in any functional language.
-How to achieve totality? Common patterns:
- Using a default value, e.g. something like mempty of Monoid Using Maybe, Either, Validation, These, which are effects to model situations like these Restricting input types (e.g. NonEmpty, or newtypes / refinement types) Make abstractions smaller (example: don&amp;rsquo;t define typeclass instances for types where some of the methods might be partial - Num and Natural typeclass for example, as Num has negative values as well) Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell) Dependent types (types that depend on values) - allows you to pass in requirements for types at the type levels (e." />
+<meta name="description" content="Note Regular note taking doesn&amp;rsquo;t prioritize connections between pieces of knowledge. The Zettelkasten is an attempt to capitalize on connecting notes rather than connecting them so that more meaningful output can come out of note taking. According to the Zettelkasten philosophy, a note is only useful in its context, e.g. other notes it relates to.
+Simple workflow:
+ When reading, make literature notes - notes on an article, each key idea into a sentence that later is to become a permanent note." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/" />
+<link rel="canonical" href="http://notes.gbojinov.xyz/timeline/20210302232348-simplistic-view-of-zettelkasten-workflow/" />
 
 
     <title>
         
-            Achieving totality in functions :: Notes 
+            Simplistic view of Zettelkasten workflow :: Notes 
         
     </title>
 
@@ -44,23 +44,23 @@ How to achieve totality? Common patterns:
 
 
 
-<meta itemprop="name" content="Achieving totality in functions">
-<meta itemprop="description" content="Note This pertains to Haskell, but the concepts are valid in any functional language.
-How to achieve totality? Common patterns:
- Using a default value, e.g. something like mempty of Monoid Using Maybe, Either, Validation, These, which are effects to model situations like these Restricting input types (e.g. NonEmpty, or newtypes / refinement types) Make abstractions smaller (example: don&rsquo;t define typeclass instances for types where some of the methods might be partial - Num and Natural typeclass for example, as Num has negative values as well) Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell) Dependent types (types that depend on values) - allows you to pass in requirements for types at the type levels (e.">
-<meta itemprop="datePublished" content="2021-02-28T00:00:00+02:00" />
-<meta itemprop="dateModified" content="2021-02-28T00:00:00+02:00" />
-<meta itemprop="wordCount" content="205">
+<meta itemprop="name" content="Simplistic view of Zettelkasten workflow">
+<meta itemprop="description" content="Note Regular note taking doesn&rsquo;t prioritize connections between pieces of knowledge. The Zettelkasten is an attempt to capitalize on connecting notes rather than connecting them so that more meaningful output can come out of note taking. According to the Zettelkasten philosophy, a note is only useful in its context, e.g. other notes it relates to.
+Simple workflow:
+ When reading, make literature notes - notes on an article, each key idea into a sentence that later is to become a permanent note.">
+<meta itemprop="datePublished" content="2021-03-02T00:00:00+02:00" />
+<meta itemprop="dateModified" content="2021-03-02T00:00:00+02:00" />
+<meta itemprop="wordCount" content="135">
 
 
 
 <meta itemprop="keywords" content="" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Achieving totality in functions"/>
-<meta name="twitter:description" content="Note This pertains to Haskell, but the concepts are valid in any functional language.
-How to achieve totality? Common patterns:
- Using a default value, e.g. something like mempty of Monoid Using Maybe, Either, Validation, These, which are effects to model situations like these Restricting input types (e.g. NonEmpty, or newtypes / refinement types) Make abstractions smaller (example: don&rsquo;t define typeclass instances for types where some of the methods might be partial - Num and Natural typeclass for example, as Num has negative values as well) Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell) Dependent types (types that depend on values) - allows you to pass in requirements for types at the type levels (e."/>
+<meta name="twitter:title" content="Simplistic view of Zettelkasten workflow"/>
+<meta name="twitter:description" content="Note Regular note taking doesn&rsquo;t prioritize connections between pieces of knowledge. The Zettelkasten is an attempt to capitalize on connecting notes rather than connecting them so that more meaningful output can come out of note taking. According to the Zettelkasten philosophy, a note is only useful in its context, e.g. other notes it relates to.
+Simple workflow:
+ When reading, make literature notes - notes on an article, each key idea into a sentence that later is to become a permanent note."/>
 
 
 
@@ -68,7 +68,7 @@ How to achieve totality? Common patterns:
 
 
 
-    <meta property="article:published_time" content="2021-02-28 00:00:00 &#43;0200 EET" />
+    <meta property="article:published_time" content="2021-03-02 00:00:00 &#43;0200 EET" />
 
 
 
@@ -141,33 +141,31 @@ How to achieve totality? Common patterns:
 
     <article>
       <h1 class="post-title">
-        <a href="http://notes.gbojinov.xyz/timeline/20210228225209-achieving-totality-in-functions/">Achieving totality in functions</a>
+        <a href="http://notes.gbojinov.xyz/timeline/20210302232348-simplistic-view-of-zettelkasten-workflow/">Simplistic view of Zettelkasten workflow</a>
       </h1>
 
       
 
       <div class="post-content">
         <h2 id="note">Note</h2>
-<p>This pertains to Haskell, but the concepts are valid in any functional language.</p>
-<p>How to achieve totality? Common patterns:</p>
-<ul>
-<li>Using a default value, e.g. something like <code>mempty</code> of <code>Monoid</code></li>
-<li>Using <code>Maybe</code>, <code>Either</code>, <code>Validation</code>, <code>These</code>, which are effects to model situations like these</li>
-<li>Restricting input types (e.g. <code>NonEmpty</code>, or newtypes / refinement types)</li>
-<li>Make abstractions smaller (example: don&rsquo;t define typeclass instances for types where some of the methods might
-be partial - <code>Num</code> and <code>Natural</code> typeclass for example, as <code>Num</code> has negative values as well)</li>
-<li>Compiler warnings, static analysers, program verification (a bit more specific to FP languages and Haskell)</li>
-<li>Dependent types (types that depend on values) - allows you to pass in requirements for types at the type
-levels (e.g. this list will have 5 elements, this integer is not zero, these two matrices have compatible
-dimensions so that they can be multiplied)</li>
-</ul>
-<p>Totality is hard - we don&rsquo;t have enough automated tools to enforce it for now, so we should incorporate it by following these best practices and bake it into our architecture by modeling things in a total way. Totality does not come for free.</p>
+<p>Regular note taking doesn&rsquo;t prioritize connections between pieces of knowledge. The Zettelkasten is an attempt
+to capitalize on connecting notes rather than connecting them so that more meaningful output can come out of
+note taking. According to the Zettelkasten philosophy, a note is only useful in its context, e.g. other notes it relates to.</p>
+<p>Simple workflow:</p>
+<ol>
+<li>When reading, make literature notes - notes on an article, each key idea into a sentence that later is to
+become a permanent note.</li>
+<li>Write an idea on a card / permanent note</li>
+<li>Link it to other, already existing, ideas</li>
+<li>Sort ideas into topics with topic links</li>
+</ol>
+<p>The key is making connections <code>during</code> note taking, not when writing and reviewing afterwards.</p>
 <h2 id="links-to-this-note">Links to this note</h2>
 <ul>
-<li><a href="/timeline/20210228222248-totality-in-functional-programming/">Totality in Functional Programming</a></li>
+<li><a href="/timeline/20210302231143-stop-taking-regular-notes-use-a-zettelkasten-instead/">Stop Taking Regular Notes; Use a Zettelkasten Instead</a></li>
 </ul>
 <blockquote>
-<p><a href="/timeline/20210228225636-total-functions-and-how-they-are-useful-to-us/">Total functions and how they are useful to us</a></p>
+<p><a href="/timeline/20210302232348-simplistic-view-of-zettelkasten-workflow/">Simplistic view of Zettelkasten workflow</a></p>
 </blockquote>
 
       </div>
@@ -185,7 +183,7 @@ dimensions so that they can be multiplied)</li>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        205 Words
+        135 Words
       </p>
 
       <p>
@@ -195,7 +193,7 @@ dimensions so that they can be multiplied)</li>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2021-02-28 00:00 &#43;0200
+        2021-03-02 00:00 &#43;0200
       </p>
  
     </div>
@@ -210,17 +208,17 @@ dimensions so that they can be multiplied)</li>
         <div class="pagination__buttons">
           
             <span class="button previous">
-              <a href="http://notes.gbojinov.xyz/timeline/20210302232241-topics-in-a-zettelkasten/">
+              <a href="http://notes.gbojinov.xyz/timeline/20210302231738-permanent-notes-in-a-zettelkasten/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Topics in a Zettelkasten</span>
+                <span class="button__text">Permanent notes in a Zettelkasten</span>
               </a>
             </span>
           
 
           
             <span class="button next">
-              <a href="http://notes.gbojinov.xyz/timeline/20210228222135-given-and-using-clauses-in-scala-3/">
-                <span class="button__text">Given and Using Clauses in Scala 3</span>
+              <a href="http://notes.gbojinov.xyz/timeline/20210302231143-stop-taking-regular-notes-use-a-zettelkasten-instead/">
+                <span class="button__text">Stop Taking Regular Notes; Use a Zettelkasten Instead</span>
                 <span class="button__icon">→</span>
               </a>
             </span>
